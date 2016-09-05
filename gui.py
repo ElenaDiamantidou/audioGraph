@@ -606,7 +606,7 @@ class Waveform(Window):
                 if not annotations[i][2][-sub:] in speakers:
                     speakers.append(annotations[i][2][-sub:])
                 #speakerMenu.addAction(speaker)
-
+        #new speaker...
         for index in range(len(speakers)):
             speakerMenu.addAction(speakers[index])
         addNew = speakerMenu.addAction('Add New Speaker')

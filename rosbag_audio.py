@@ -35,17 +35,25 @@ def parse_arguments():
 #isolate audio from bag file
 def audio_bag_file(bagFile):
     #save topic and message
+
+    topicKey = 0
+    topic = 0
     flag = False
     bag = rosbag.Bag(bagFile)
     info_dict = yaml.load(bag._get_yaml_info())
     topics =  info_dict['topics']
-    topic = topics[0]
+
+    for key in range(len(topics)):
+        if topics[key]['topic'] == '/audio':
+            topicKey = key
+
+    topic = topics[topicKey]
     messages =  topic['messages']
     duration = info_dict['duration']
     topic_type = topic['type']
     frequency = topic['frequency']
-    audioCheck = topic['topic']
 
+    audioCheck = topic['topic']
     #Checking if the topic is audio
     if 'audio_common_msgs' in topic_type:
         sound = True
@@ -64,7 +72,9 @@ def audio_bag_file(bagFile):
     print "total number of compressed bytes {0:d}".format(nSamples)
     print "total duration {0:.2f}".format(duration)
     print "average bit rate {0:.2f}".format(float(nBytes) * 8.0 / float(duration))
-    bag.close()    
+
+    frequency = frequency * 1000
+    #bag.close()    
     return audio
 
 #save mp3 file
@@ -121,7 +131,6 @@ if __name__ =='__main__':
     # get audio data 
     mp3FileName = write_mp3_file(audioData, bagFile)
     wavFileName = mp3_to_wav(mp3FileName)
-    print 'here'
     gui.run(wavFileName, bagFile)
 
 
