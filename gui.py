@@ -67,14 +67,14 @@ yPos = 100
 
 #Annotation colors
 colorName = None
-annotationColors = (['Speech', 'green'],['Music','red'], ['Activity', 'magenta'],['Laugh', 'yellow'])
+annotationColors = (['Speech', 'green'],['Music','red'], ['Activity', 'magenta'],['Laugh', 'yellow'], ['Cough', '#4B0082'])
 #list of green shades
 GreenShades = ['#007300', '#00e500','#006600','#007f00','#005900','#00cc00','#004c00', '#004000', '#009900', '#003300', '#00b200', '#002600']
 shadesAndSpeaker = []
 greenIndex = 0
 
 #Annotations important variables
-classLabels = ['Music', 'Activity', 'Laugh']
+classLabels = ['Music', 'Activity', 'Laugh', 'Cough']
 annotationFlag = False
 annotations = []
 isBold = False
@@ -747,6 +747,9 @@ class Waveform(Window):
 
         elif text == 'Laugh':
             colorName = 'yellow'
+            doIt = True
+        elif text == 'Cough':
+            colorName = '#4B0082'
             doIt = True
         
         if doIt:
