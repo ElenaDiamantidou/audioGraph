@@ -31,7 +31,7 @@ http://wiki.ros.org/kinetic/Installation/Ubuntu
 
 install PyQt5 from Synaptics
 
-*always runsudo synaptics
+*always run sudo synaptics
 
 **if gstreamer not automatically installed, install also from synaptics
 
@@ -39,9 +39,23 @@ install PyQt5 from Synaptics
 
 install QtMultimedia from Synaptics
 
+**check Roslib**
+
+*dpkg -L python-roslib*
+
+dpkg-query: package 'python-roslib' is not installed
+
+Use dpkg --info (= dpkg-deb --info) to examine archive files,
+
+and dpkg --contents (= dpkg-deb --contents) to list their contents.
+
+If python-roslib is not installed: 
+
+*sudo apt-get install python-roslib*
+ 
 **pyAudioAnalysis**
 
-install library from https://github.com/tyiannak/pyAudioAnalysis.wiki.git
+install library from https://github.com/tyiannak/pyAudioAnalysis
 
 the latest edition needs to install sklearn and hmmlearn
 
