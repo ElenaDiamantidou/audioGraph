@@ -73,8 +73,10 @@ where 2016-07-04-16-19-14.bag the rosbag file.
 
 To split audio into segments run:
 
-*python rosbagAudio.py rosbags/2016-07-22-13-24-10_audio.csv rosbags/2016-07-22-13-24-10.wav*
+*python saveAudioSegments.py rosbags/2016-07-22-13-24-10_audio.csv rosbags/2016-07-22-13-24-10.wav*
 
 To train pyAudioAnalysis Classifier run:
 
 *python trainAudioFromAnnotations.py*
+
+:smiley:
